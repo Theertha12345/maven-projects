@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        sonarQubeScanner 'theertha-sonar'
+    }
+
     environment {
         SONAR_HOST = "http://172.31.11.246:9000"
         NEXUS_HOST = "172.31.14.124:8081"
@@ -10,6 +14,7 @@ pipeline {
         VERSION = "1.0"
         TOMCAT_IP = "172.31.8.183"
     }
+
 
     stages {
 
