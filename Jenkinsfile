@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     tools {
-        sonarQubeScanner 'theertha-sonar'
-    }
+    sonarRunner 'theertha-sonar'
+}
+
 
     environment {
         SONAR_HOST = "http://172.31.11.246:9000"
