@@ -25,7 +25,7 @@ pipeline {
     steps {
         withSonarQubeEnv('theertha sonar') {
             sh '''
-            sonar-scanner \
+            ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
               -Dsonar.projectKey=maven-projects \
               -Dsonar.sources=src \
               -Dsonar.java.binaries=target
@@ -33,6 +33,7 @@ pipeline {
         }
     }
 }
+
 
 
         stage('Quality Gate') {
