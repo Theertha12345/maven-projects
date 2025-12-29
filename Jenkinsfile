@@ -6,7 +6,7 @@ pipeline {
         NEXUS_HOST = "172.31.14.124:8081"
         NEXUS_REPO = "maven-snapshort"
         GROUP_ID = "com.example"
-        ARTIFACT_ID = "hello-devops"
+        ARTIFACT_ID = "maven-projects"
         VERSION = "1.0"
         TOMCAT_IP = "172.31.8.183"
     }
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git ''
+                git 'https://github.com/Theertha12345/maven-projects.git'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
                 withSonarQubeEnv('sonar') {
                     sh '''
                     mvn clean verify sonar:sonar \
-                    -Dsonar.projectKey=hello-devops \
+                    -Dsonar.projectKey=maven-projects \
                     -Dsonar.qualitygate.wait=true
                     '''
                 }
