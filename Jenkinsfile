@@ -23,7 +23,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonar') {
+                withSonarQubeEnv('theertha sonar') {
                     sh '''
                     mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=maven-projects \
