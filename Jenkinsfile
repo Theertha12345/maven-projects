@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     environment {
-        SONAR_HOST = "http://<SONAR_PRIVATE_IP>:9000"
-        NEXUS_HOST = "<NEXUS_PRIVATE_IP>:8081"
-        NEXUS_REPO = "maven-releases"
+        SONAR_HOST = "http://172.31.11.246:9000"
+        NEXUS_HOST = "172.31.14.124:8081"
+        NEXUS_REPO = "maven-snapshort"
         GROUP_ID = "com.example"
         ARTIFACT_ID = "hello-devops"
         VERSION = "1.0"
-        TOMCAT_IP = "<TOMCAT_PRIVATE_IP>"
+        TOMCAT_IP = "172.31.8.183"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourname/hello-devops.git'
+                git ''
             }
         }
 
