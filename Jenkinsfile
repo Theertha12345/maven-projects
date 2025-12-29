@@ -22,16 +22,18 @@ pipeline {
 
 
         stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('theertha sonar') {
-                    sh '''
-                    mvn clean verify sonar:sonar \
-                    -Dsonar.projectKey=maven-projects \
-                    -Dsonar.qualitygate.wait=true
-                    '''
-                }
-            }
+    steps {
+        withSonarQubeEnv('theertha sonar') {
+            sh '''
+            sonar-scanner \
+              -Dsonar.projectKey=maven-projects \
+              -Dsonar.sources=src \
+              -Dsonar.java.binaries=target
+            '''
         }
+    }
+}
+
 
         stage('Quality Gate') {
             steps {
