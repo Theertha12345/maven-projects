@@ -14,10 +14,12 @@ pipeline {
     stages {
 
         stage('Checkout') {
-            steps {
-                git 'https://github.com/Theertha12345/maven-projects.git'
-            }
-        }
+    steps {
+        git branch: 'main',
+            url: 'https://github.com/Theertha12345/maven-projects.git'
+       }
+   }
+
 
         stage('SonarQube Analysis') {
             steps {
